@@ -1,0 +1,960 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Rudy – Web Developer & Digital Marketing Specialist | Cianjur</title>
+  <meta name="description"
+    content="Rudy (Cecep Rudiansyah), freelance web developer & digital marketing specialist di Cianjur. Jasa website UMKM, landing page, company profile, SEO, dan Meta Ads.">
+  <meta name="author" content="Cecep Rudiansyah">
+  <meta name="theme-color" content="#0f172a">
+  <meta property="og:title" content="Rudy – Web Developer & Digital Marketing Specialist">
+  <meta property="og:description"
+    content="Build Website. Grow Business. Jasa website profesional, SEO, dan Meta Ads untuk UMKM dan bisnis lokal.">
+  <meta property="og:type" content="website">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500&display=swap"
+    rel="stylesheet">
+</head>
+<style>
+    :root {
+      --bg: #0f172a;
+      --bg2: #0b1222;
+      --blue: #3b82f6;
+      --cyan: #22d3ee;
+      --text: #e2e8f0;
+      --muted: #94a3b8;
+      --line: rgba(148, 163, 184, .16);
+      --glass: rgba(30, 41, 59, .45);
+      --mono: 'JetBrains Mono', ui-monospace, Consolas, monospace;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0
+    }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 72px
+    }
+
+    body {
+      font-family: 'Inter', system-ui, -apple-system, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.7;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none
+    }
+
+    :focus-visible {
+      outline: 2px solid var(--cyan);
+      outline-offset: 3px;
+      border-radius: 6px
+    }
+
+    .wrap {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 0 24px
+    }
+
+    section {
+      padding: 112px 0;
+      position: relative
+    }
+
+    h2 {
+      font-size: clamp(1.9rem, 4vw, 2.7rem);
+      line-height: 1.15;
+      letter-spacing: -.02em;
+      font-weight: 700;
+      margin-bottom: 14px
+    }
+
+    .lead {
+      color: var(--muted);
+      max-width: 560px;
+      margin-bottom: 56px
+    }
+
+    .glass {
+      background: var(--glass);
+      border: 1px solid var(--line);
+      border-radius: 20px;
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px)
+    }
+
+    /* NAV */
+    nav {
+      position: fixed;
+      inset: 0 0 auto;
+      z-index: 50;
+      transition: .3s
+    }
+
+    nav.solid {
+      background: rgba(15, 23, 42, .8);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--line)
+    }
+
+    nav .wrap {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 68px
+    }
+
+    .logo {
+      font-family: var(--mono);
+      font-weight: 500;
+      color: var(--text)
+    }
+
+    .logo i {
+      color: var(--cyan);
+      font-style: normal
+    }
+
+    .links {
+      display: flex;
+      gap: 30px;
+      font-size: .92rem;
+      color: var(--muted)
+    }
+
+    .links a:hover {
+      color: #fff
+    }
+
+    /* BUTTON */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 14px 26px;
+      border-radius: 12px;
+      font-weight: 600;
+      font-size: .95rem;
+      border: 1px solid transparent;
+      transition: transform .25s, box-shadow .25s, background .25s;
+      cursor: pointer
+    }
+
+    .btn.primary {
+      background: var(--blue);
+      color: #fff;
+      box-shadow: 0 8px 28px -8px rgba(59, 130, 246, .7)
+    }
+
+    .btn.primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 34px -6px rgba(59, 130, 246, .9)
+    }
+
+    .btn.ghost {
+      border-color: var(--line);
+      background: rgba(255, 255, 255, .03)
+    }
+
+    .btn.ghost:hover {
+      border-color: var(--cyan);
+      color: var(--cyan);
+      transform: translateY(-2px)
+    }
+
+    /* HERO */
+    #hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      padding: 120px 0 80px;
+      overflow: hidden;
+      background: radial-gradient(900px 500px at 85% 10%, rgba(59, 130, 246, .18), transparent 60%), radial-gradient(600px 400px at 10% 90%, rgba(34, 211, 238, .09), transparent 60%), var(--bg)
+    }
+
+    .bgcode {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      user-select: none;
+      font-family: var(--mono);
+      color: #94a3b8;
+      opacity: .07
+    }
+
+    .bgcode span {
+      position: absolute;
+      font-size: var(--s, 1.6rem);
+      left: var(--x);
+      top: var(--y);
+      animation: drift 14s ease-in-out infinite alternate;
+      animation-delay: var(--d, 0s)
+    }
+
+    @keyframes drift {
+      to {
+        transform: translate(14px, -18px)
+      }
+    }
+
+    .hero-grid {
+      position: relative;
+      display: grid;
+      grid-template-columns: 5fr 6fr;
+      gap: 72px;
+      align-items: center
+    }
+
+    .photo {
+      position: relative;
+      max-width: 420px;
+      margin: 0 auto;
+      width: 100%
+    }
+
+    .photo::before {
+      content: "";
+      position: absolute;
+      inset: -14px;
+      border-radius: 32px;
+      background: linear-gradient(140deg, var(--blue), var(--cyan) 60%, transparent);
+      opacity: .5;
+      filter: blur(26px)
+    }
+
+    .frame {
+      position: relative;
+      aspect-ratio: 4/5;
+      border-radius: 28px;
+      overflow: hidden;
+      border: 1px solid rgba(148, 163, 184, .25);
+      background: linear-gradient(160deg, #1e293b, #0f172a)
+    }
+
+    .frame img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block
+    }
+
+    .frame .ph {
+      position: absolute;
+      inset: 0;
+      display: grid;
+      place-items: center;
+      font: 800 5rem/1 'Inter';
+      color: rgba(148, 163, 184, .25)
+    }
+
+    .chip {
+      position: absolute;
+      padding: 10px 16px;
+      font: 500 .8rem var(--mono);
+      border-radius: 14px
+    }
+
+    .chip.a {
+      left: -18px;
+      bottom: 44px;
+      color: var(--cyan)
+    }
+
+    .chip.b {
+      right: -14px;
+      top: 36px;
+      color: #93c5fd
+    }
+
+    .tag {
+      font: 500 1.05rem var(--mono);
+      color: var(--cyan);
+      margin-bottom: 20px;
+      display: inline-block
+    }
+
+    h1 {
+      font-size: clamp(2.3rem, 5.2vw, 3.9rem);
+      line-height: 1.08;
+      letter-spacing: -.03em;
+      font-weight: 800;
+      margin-bottom: 24px
+    }
+
+    .sub {
+      color: var(--muted);
+      font-size: 1.1rem;
+      max-width: 540px;
+      margin-bottom: 36px
+    }
+
+    .cta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px
+    }
+
+    .meta {
+      display: flex;
+      gap: 28px;
+      margin-top: 44px;
+      color: var(--muted);
+      font-size: .88rem
+    }
+
+    .meta b {
+      display: block;
+      color: var(--text);
+      font-size: 1.2rem
+    }
+
+    /* ABOUT */
+    #about .glass {
+      padding: 56px;
+      display: grid;
+      grid-template-columns: 1fr 1.5fr;
+      gap: 48px;
+      align-items: center;
+      position: relative;
+      overflow: hidden
+    }
+
+    #about .glass::after {
+      content:"{ }";
+      position: absolute;
+      right: 28px;
+      bottom: -30px;
+      font: 500 9rem var(--mono);
+      color: rgba(59, 130, 246, .07)
+    }
+
+    #about p {
+      color: #cbd5e1;
+      font-size: 1.1rem
+    }
+
+    /* SKILLS */
+    .stack {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px
+    }
+
+    .badge {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      padding: 16px 24px 16px 18px;
+      border-radius: 16px;
+      font-weight: 600;
+      transition: .3s
+    }
+
+    .badge:hover {
+      transform: translateY(-4px);
+      border-color: var(--c);
+      box-shadow: 0 14px 34px -14px var(--c)
+    }
+
+    .badge em {
+      width: 38px;
+      height: 38px;
+      border-radius: 10px;
+      display: grid;
+      place-items: center;
+      font: 500 .8rem var(--mono);
+      font-style: normal;
+      color: var(--c);
+      background: color-mix(in srgb, var(--c) 14%, transparent)
+    }
+
+    /* SERVICES */
+    .grid3 {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px
+    }
+
+    .card {
+      padding: 34px 30px;
+      transition: transform .35s, border-color .35s, box-shadow .35s;
+      position: relative;
+      overflow: hidden
+    }
+
+    .card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(300px 200px at var(--mx, 50%) var(--my, 0%), rgba(59, 130, 246, .18), transparent 70%);
+      opacity: 0;
+      transition: .35s
+    }
+
+    .card:hover {
+      transform: translateY(-6px);
+      border-color: rgba(59, 130, 246, .55);
+      box-shadow: 0 22px 50px -24px rgba(59, 130, 246, .6)
+    }
+
+    .card:hover::before {
+      opacity: 1
+    }
+
+    .card svg {
+      width: 30px;
+      height: 30px;
+      stroke: var(--cyan);
+      fill: none;
+      stroke-width: 1.6;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      margin-bottom: 20px;
+      position: relative
+    }
+
+    .card h3 {
+      font-size: 1.15rem;
+      margin-bottom: 8px;
+      position: relative
+    }
+
+    .card p {
+      color: var(--muted);
+      font-size: .95rem;
+      position: relative
+    }
+
+    /* WHY */
+    .timeline {
+      position: relative;
+      max-width: 760px;
+      padding-left: 40px
+    }
+
+    .timeline::before {
+      content: "";
+      position: absolute;
+      left: 7px;
+      top: 8px;
+      bottom: 8px;
+      width: 2px;
+      background: linear-gradient(var(--blue), var(--cyan), transparent)
+    }
+
+    .step {
+      position: relative;
+      padding: 28px 32px;
+      margin-bottom: 22px
+    }
+
+    .step::before {
+      content: "";
+      position: absolute;
+      left: -41px;
+      top: 36px;
+      width: 16px;
+      height: 16px;
+      border-radius: 50%;
+      background: var(--bg);
+      border: 2px solid var(--cyan);
+      box-shadow: 0 0 14px var(--cyan)
+    }
+
+    .step h3 {
+      margin-bottom: 6px
+    }
+
+    .step p {
+      color: var(--muted)
+    }
+
+    /* PORTFOLIO */
+    .proj {
+      overflow: hidden;
+      transition: transform .35s, border-color .35s
+    }
+
+    .proj:hover {
+      transform: translateY(-6px);
+      border-color: rgba(34, 211, 238, .5)
+    }
+
+    .thumb {
+      aspect-ratio: 16/10;
+      display: grid;
+      place-items: center;
+      color: rgba(148, 163, 184, .5);
+      font: 500 .85rem var(--mono);
+      background: repeating-linear-gradient(135deg, rgba(59, 130, 246, .08) 0 12px, transparent 12px 24px), #111c33;
+      border-bottom: 1px solid var(--line)
+    }
+
+    .thumb img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover
+    }
+
+    .proj div.b {
+      padding: 24px 26px 30px
+    }
+
+    .proj h3 {
+      margin-bottom: 6px
+    }
+
+    .proj p {
+      color: var(--muted);
+      font-size: .93rem
+    }
+
+    /* CONTACT */
+    #contact .glass {
+      padding: 72px 40px;
+      text-align: center;
+      background: radial-gradient(500px 260px at 50% 0%, rgba(59, 130, 246, .2), transparent 70%), var(--glass)
+    }
+
+    #contact h2 {
+      margin-bottom: 12px
+    }
+
+    #contact p.lead {
+      margin: 0 auto 36px
+    }
+
+    .btn.wa {
+      background: #22c55e;
+      color: #04130a;
+      font-size: 1.1rem;
+      padding: 18px 38px;
+      box-shadow: 0 10px 34px -10px rgba(34, 197, 94, .7)
+    }
+
+    .btn.wa:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 16px 40px -8px rgba(34, 197, 94, .85)
+    }
+
+    .btn svg {
+      width: 22px;
+      height: 22px;
+      fill: currentColor
+    }
+
+    .info {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 12px 40px;
+      margin-top: 34px;
+      color: var(--muted)
+    }
+
+    .info b {
+      color: var(--text);
+      font-weight: 600
+    }
+
+    /* FOOTER */
+    footer {
+      border-top: 1px solid var(--line);
+      padding: 52px 0;
+      text-align: center;
+      background: var(--bg2)
+    }
+
+    footer .logo {
+      font-size: 1.3rem;
+      margin-bottom: 6px;
+      display: block
+    }
+
+    footer p {
+      color: var(--muted);
+      font-size: .92rem
+    }
+
+    footer q {
+      display: block;
+      margin: 18px 0;
+      font: 500 .95rem var(--mono);
+      color: var(--cyan);
+      quotes: none
+    }
+
+    footer small {
+      color: #64748b
+    }
+
+    /* REVEAL */
+    .rv {
+      opacity: 0;
+      transform: translateY(26px);
+      transition: opacity .8s cubic-bezier(.2, .7, .2, 1), transform .8s cubic-bezier(.2, .7, .2, 1);
+      transition-delay: var(--dl, 0s)
+    }
+
+    .rv.in {
+      opacity: 1;
+      transform: none
+    }
+
+    @media(max-width:900px) {
+      .links {
+        display: none
+      }
+
+      section {
+        padding: 84px 0
+      }
+
+      .hero-grid {
+        grid-template-columns: 1fr;
+        gap: 48px;
+        text-align: center
+      }
+
+      .photo {
+        max-width: 300px
+      }
+
+      .sub {
+        margin-inline: auto
+      }
+
+      .cta,
+      .meta {
+        justify-content: center
+      }
+
+      #about .glass {
+        grid-template-columns: 1fr;
+        padding: 36px 28px;
+        gap: 20px
+      }
+
+      .grid3 {
+        grid-template-columns: 1fr 1fr
+      }
+    }
+
+    @media(max-width:600px) {
+      .grid3 {
+        grid-template-columns: 1fr
+      }
+
+      .chip.a {
+        left: -6px
+      }
+
+      .chip.b {
+        right: -6px
+      }
+
+      .btn {
+        width: 100%;
+        justify-content: center
+      }
+
+      .timeline {
+        padding-left: 30px
+      }
+
+      .step {
+        padding: 22px
+      }
+
+      .step::before {
+        left: -31px
+      }
+
+      #contact .glass {
+        padding: 48px 22px
+      }
+    }
+
+    @media(prefers-reduced-motion:reduce) {
+      html {
+        scroll-behavior: auto
+      }
+
+      .rv {
+        opacity: 1;
+        transform: none;
+        transition: none
+      }
+
+      .bgcode span {
+        animation: none
+      }
+    }
+
+</style>
+
+<body>
+
+  <nav id="nav">
+    <div class="wrap">
+      <a href="#hero" class="logo">&lt; Rudy84 <i>/&gt;</i></a>
+      <div class="links">
+        <a href="#about">Tentang</a><a href="#skills">Skill</a><a href="#services">Layanan</a><a
+          href="#portfolio">Portofolio</a><a href="#contact">Kontak</a>
+      </div>
+      <a href="#contact" class="btn ghost" style="padding:10px 20px">Hubungi Saya</a>
+    </div>
+  </nav>
+
+  <main>
+    <!-- HERO -->
+    <section id="hero">
+      <div class="bgcode" aria-hidden="true">
+        <span style="--x:6%;--y:14%;--s:3rem">&lt;/&gt;</span>
+        <span style="--x:30%;--y:8%;--d:-3s">const</span>
+        <span style="--x:62%;--y:16%;--s:4rem;--d:-6s">{ }</span>
+        <span style="--x:88%;--y:34%;--d:-2s">HTML</span>
+        <span style="--x:4%;--y:52%;--d:-5s">function</span>
+        <span style="--x:46%;--y:46%;--s:2.4rem;--d:-8s">CSS</span>
+        <span style="--x:74%;--y:62%;--s:3.4rem;--d:-4s">&lt;/&gt;</span>
+        <span style="--x:20%;--y:78%;--s:2.6rem;--d:-7s">JS</span>
+        <span style="--x:52%;--y:86%;--d:-1s">const</span>
+        <span style="--x:90%;--y:88%;--s:3rem;--d:-9s">{ }</span>
+      </div>
+      <div class="wrap hero-grid">
+        <div class="photo rv">
+          <div class="frame">
+            <div class="ph">R</div>
+            <!-- GANTI nama file foto di bawah ini dengan foto Anda -->
+            <img src="Rudy.png" alt="Foto Rudy, Web Developer dan Digital Marketing Specialist"
+              onerror="this.remove()">
+          </div>
+          <div class="chip glass a">&lt;/&gt; clean code</div>
+          <div class="chip glass b">+ leads</div>
+        </div>
+        <div>
+          <span class="tag rv">&lt; Rudy84 /&gt;</span>
+          <h1 class="rv" style="--dl:.1s">Front end Developer &amp; Digital Marketing Specialist</h1>
+          <p class="sub rv" style="--dl:.2s">Membantu UMKM dan bisnis membangun website profesional, meningkatkan
+            visibilitas online melalui strategi digital yang terukur.</p>
+          <div class="cta rv" style="--dl:.3s">
+            <a href="#portfolio" class="btn primary">Lihat Portofolio</a>
+            <a href="#contact" class="btn ghost">Hubungi Saya</a>
+          </div>
+          <div class="meta rv" style="--dl:.4s">
+            <div><b>2023</b>aktif sejak</div>
+            <div><b>WFH</b>work from home</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section id="about">
+      <div class="wrap">
+        <div class="glass rv">
+          <h2>Tentang Saya</h2>
+          <p>Freelance web developer dan digital marketer yang berfokus pada pembuatan website bisnis,
+            landing page, SEO, dan strategi iklan digital. Sejak 2023 saya membantu berbagai bisnis & UMKM membangun kehadiran
+            digital yang lebih profesional dan efektif.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- SKILLS -->
+    <section id="skills">
+      <div class="wrap">
+        <h2 class="rv">SKILL</h2>
+        <p class="lead rv">Alat yang saya pakai untuk membangun, mengoptimalkan, dan mengiklankan website bisnis Anda.
+        </p>
+        <div class="stack">
+          <div class="badge glass rv" style="--c:#f97316"><em>&lt;/&gt;</em>HTML</div>
+          <div class="badge glass rv" style="--c:#3b82f6;--dl:.06s"><em>#</em>CSS</div>
+          <div class="badge glass rv" style="--c:#facc15;--dl:.12s"><em>JS</em>JavaScript</div>
+          <div class="badge glass rv" style="--c:#22d3ee;--dl:.18s"><em>⚛</em>React.js</div>
+          <div class="badge glass rv" style="--c:#34d399;--dl:.24s"><em>↗</em>SEO</div>
+          <div class="badge glass rv" style="--c:#60a5fa;--dl:.3s"><em>∞</em>Meta Ads</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SERVICES -->
+    <section id="services">
+      <div class="wrap">
+        <h2 class="rv">Layanan</h2>
+        <p class="lead rv">Dari website pertama sampai iklan yang membawa pelanggan, semuanya bisa ditangani satu orang.
+        </p>
+        <div class="grid3">
+          <article class="card glass rv">
+            <svg viewBox="0 0 24 24">
+              <rect x="3" y="4" width="18" height="16" rx="2" />
+              <path d="M3 9h18M8 14h8" />
+            </svg>
+            <h3>Company Profile Website</h3>
+            <p>Website perusahaan yang rapi dan kredibel untuk membangun kepercayaan calon klien.</p>
+          </article>
+          <article class="card glass rv" style="--dl:.08s">
+            <svg viewBox="0 0 24 24">
+              <path d="M12 3l2.5 5.5L20 9l-4 4 1 6-5-3-5 3 1-6-4-4 5.5-.5z" />
+            </svg>
+            <h3>Landing Page</h3>
+            <p>Satu halaman yang dirancang untuk satu tujuan: mengubah pengunjung menjadi pelanggan.</p>
+          </article>
+          <article class="card glass rv" style="--dl:.16s">
+            <svg viewBox="0 0 24 24">
+              <path d="M4 9l1-5h14l1 5M4 9v11h16V9M4 9c0 2 3 2 4 0 1 2 3 2 4 0 1 2 3 2 4 0 1 2 4 2 4 0" />
+            </svg>
+            <h3>Website UMKM</h3>
+            <p>Etalase online yang sederhana, cepat, dan mudah dipakai untuk usaha lokal.</p>
+          </article>
+          <article class="card glass rv">
+            <svg viewBox="0 0 24 24">
+              <circle cx="11" cy="11" r="7" />
+              <path d="M21 21l-5-5M8 11l2 2 4-4" />
+            </svg>
+            <h3>SEO Optimization</h3>
+            <p>Optimasi agar bisnis Anda mudah ditemukan di Google saat orang mencari layanan Anda.</p>
+          </article>
+          <article class="card glass rv" style="--dl:.08s">
+            <svg viewBox="0 0 24 24">
+              <path d="M3 12h4l3-8 4 16 3-8h4" />
+            </svg>
+            <h3>Meta Ads Management</h3>
+            <p>Iklan Facebook dan Instagram yang ditargetkan dan dipantau hasilnya secara berkala.</p>
+          </article>
+          <article class="card glass rv" style="--dl:.16s">
+            <svg viewBox="0 0 24 24">
+              <path d="M14.7 6.3a4 4 0 00-5.4 5.4L3 18l3 3 6.3-6.3a4 4 0 005.4-5.4l-2.4 2.4-2.6-.6-.6-2.6z" />
+            </svg>
+            <h3>Website Maintenance</h3>
+            <p>Pembaruan, perbaikan, dan pemantauan rutin supaya website selalu aman dan berjalan baik.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- WHY -->
+    <section id="why">
+      <div class="wrap">
+        <h2 class="rv">Kenapa Bekerja dengan Saya</h2>
+        <p class="lead rv">Tiga prinsip yang saya pegang di setiap proyek.</p>
+        <div class="timeline">
+          <div class="step glass rv">
+            <h3>Fokus Pada Hasil</h3>
+            <p>Website bukan sekadar tampil bagus. Tujuannya membawa lebih banyak pengunjung, pertanyaan, dan penjualan.
+            </p>
+          </div>
+          <div class="step glass rv">
+            <h3>Solusi Sesuai Kebutuhan Bisnis</h3>
+            <p>Setiap bisnis berbeda. Saya memilih solusi yang pas dengan target dan anggaran Anda, bukan paket yang
+              sama untuk semua.</p>
+          </div>
+          <div class="step glass rv">
+            <h3>Komunikasi Transparan</h3>
+            <p>Anda tahu progres, biaya, dan hasilnya. Tanpa istilah teknis yang membingungkan.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PORTFOLIO -->
+    <section id="portfolio">
+      <div class="wrap">
+        <h2 class="rv">Portofolio</h2>
+        <p class="lead rv">Beberapa proyek yang pernah saya kerjakan.</p>
+        <div class="grid3">
+          <!-- Salin blok <article> ini untuk menambah proyek. Ganti .thumb dengan: <div class="thumb"><img src="proyek.jpg" alt="..."></div> -->
+          <article class="proj glass rv">
+            <div class="thumb">Project Image</div>
+            <div class="b">
+              <h3>Project Title</h3>
+              <p>Project Description. Jelaskan singkat masalah klien dan hasil yang dicapai.</p>
+            </div>
+          </article>
+          <article class="proj glass rv" style="--dl:.1s">
+            <div class="thumb">Project Image</div>
+            <div class="b">
+              <h3>Project Title</h3>
+              <p>Project Description. Jelaskan singkat masalah klien dan hasil yang dicapai.</p>
+            </div>
+          </article>
+          <article class="proj glass rv" style="--dl:.2s">
+            <div class="thumb">Project Image</div>
+            <div class="b">
+              <h3>Project Title</h3>
+              <p>Project Description. Jelaskan singkat masalah klien dan hasil yang dicapai.</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact">
+      <div class="wrap">
+        <div class="glass rv">
+          <h2>Punya Proyek? Mari Diskusi.</h2>
+          <p class="lead">Ceritakan kebutuhan bisnis Anda. Konsultasi awal gratis dan tanpa kewajiban.</p>
+          <a class="btn wa"
+            href="https://wa.me/6285872636941?text=Halo%20Rudy%2C%20saya%20tertarik%20dengan%20jasa%20website%20Anda."
+            target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path
+                d="M12 2a10 10 0 00-8.5 15.2L2 22l4.9-1.5A10 10 0 1012 2zm-3.200 5.500c.3-.6.600-.6.900-.6h.5c.2 0 .4.100.5.500l.7 1.700c.1.200 0 .4-.1.600l-.4.500c-.2.200-.1.400 0 .600.700 1.200 1.700 2 2.900 2.500.3.100.5.100.7-.1l.7-.8c.2-.2.400-.2.600-.1l1.700.8c.2.100.4.200.4.300 0 .500-.2 1-.7 1.400-.5.400-1.200.6-1.900.4-3.200-.8-5.500-3.100-6.400-5.200-.3-.8-.3-1.700.3-2.500z" />
+            </svg>
+            Chat via WhatsApp
+          </a>
+          <div class="info"><span><b>WhatsApp:</b> 085872636941</span><span><b>Lokasi:</b> Cianjur</span></div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap">
+      <span class="logo">&lt; Rudy <i>/&gt;</i></span>
+      <p>Web Developer &amp; Digital Marketing Specialist</p>
+      <q>"Build Website. Grow Business."</q>
+      <small>&copy; <span id="yr">2026</span> Cecep Rudiansyah</small>
+    </div>
+  </footer>
+
+  <script>
+    // Navbar solid saat scroll
+    const nav = document.getElementById('nav');
+    const onScroll = () => nav.classList.toggle('solid', scrollY > 30);
+    addEventListener('scroll', onScroll, { passive: true }); onScroll();
+
+    // Reveal on scroll (Intersection Observer)
+    const io = new IntersectionObserver((es) => {
+      es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target) } });
+    }, { threshold: .15, rootMargin: '0px 0px -40px 0px' });
+    document.querySelectorAll('.rv').forEach(el => io.observe(el));
+
+    // Cahaya mengikuti kursor di card layanan
+    document.querySelectorAll('.card').forEach(c => {
+      c.addEventListener('pointermove', e => {
+        const r = c.getBoundingClientRect();
+        c.style.setProperty('--mx', (e.clientX - r.left) + 'px');
+        c.style.setProperty('--my', (e.clientY - r.top) + 'px');
+      });
+    });
+
+    document.getElementById('yr').textContent = new Date().getFullYear();
+  </script>
+</body>
+
+</html>
